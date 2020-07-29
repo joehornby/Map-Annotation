@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw on the Map — Purley Way Finders</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDho_PPZCDAkwNa1dqyCzIK_Z1X6eLhSnc&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+
+    <style>
+      #map {
+        height: 100%;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+    let map;
+
+    let places = [
+      'Waddon',
+      'Purley Way',
+      'Hackbridge',
+      'Wallington',
+      'Roundshaw',
+      'Beddington',
+      'Purley',
+      'South Croydon'
+    ]
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 51.3631595, lng: -0.1227972},
+        zoom: 15,
+        minZoom:15,
+        maxZoom:15,
+        mapTypeControl: false,
+      });
+    }
+  </script>
+</html>
