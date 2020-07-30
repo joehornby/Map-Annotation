@@ -16,7 +16,13 @@ function resizeCanvas() {
 /* ***
  * Initialise canvas size on window load
  * ***/
-window.addEventListener('load', () => {
+window.addEventListener('load', _ => {
+    resizeCanvas()
+})
+/* ***
+ * Change canvas size on window resize
+ * ***/
+window.addEventListener('resize', _ => {
     resizeCanvas()
 })
 
