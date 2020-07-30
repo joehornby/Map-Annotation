@@ -11,7 +11,7 @@ for (i = 0; i < numColours; i++) {
    * hues across colour wheel
    */
   hue = Math.round(i / numColours * 360);
-  colours[i] = "hsl(".concat(hue, ", 100%, 50%)");
+  colours[i] = "hsl(".concat(hue, ", 100%, 70%)");
 }
 
 console.log(colours);
@@ -27,6 +27,7 @@ function createButton(context, value, index) {
   var btn = document.createElement('button');
   btn.innerText = value;
   btn.setAttribute('onclick', "changeColour( ".concat(index, ", colours )"));
+  btn.style.backgroundColor = colours[index];
   context.appendChild(btn);
 }
 

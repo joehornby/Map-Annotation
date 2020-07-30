@@ -20,7 +20,7 @@ let map
          * hues across colour wheel
          */
         hue = Math.round(i / numColours * 360);
-        colours[i] = `hsl(${hue}, 100%, 50%)`
+        colours[i] = `hsl(${hue}, 100%, 70%)`
     }
 
     console.log(colours)
@@ -38,6 +38,7 @@ let map
       let btn = document.createElement( 'button' )
       btn.innerText = value
       btn.setAttribute('onclick',`changeColour( ${index}, colours )`)
+      btn.style.backgroundColor = colours[index]
       context.appendChild( btn )
     }
 
