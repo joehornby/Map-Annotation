@@ -23,8 +23,6 @@ let map
         colours[i] = `hsl(${hue}, 100%, 70%)`
     }
 
-    console.log(colours)
-
     window.onload = () => {
       places.forEach( (place, index) => {
         createButton( placeButtons, place, index )
@@ -43,7 +41,7 @@ let map
     }
 
     function submit() {
-      alert('Submitted')
+      alert('Submitted (to do)')
       /* TODO:
        * - get bounds from google map
        * - save entire canvas as image (svg?)
