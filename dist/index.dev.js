@@ -2,7 +2,19 @@
 
 var map;
 var placeButtons = document.createDocumentFragment();
-var places = ["Waddon", "Purley Way", "Hackbridge", "Wallington", "Roundshaw", "Beddington", "Purley", "South Croydon"]; // let placeButtonContainer = document.getElementById( 'places' )
+var places = ["Waddon", "Purley Way", "Hackbridge", "Wallington", "Roundshaw", "Beddington", "Purley", "South Croydon"];
+var numColours = places.length;
+var colours = [];
+
+for (i = 0; i < numColours; i++) {
+  /* Get evenly spaced array of 
+   * hues across colour wheel
+   */
+  hue = Math.round(i / numColours * 360);
+  colours[i] = "hsl(".concat(hue, ", 100%, 50%)");
+}
+
+console.log(colours);
 
 window.onload = function () {
   places.forEach(function (place, index) {
@@ -14,16 +26,18 @@ window.onload = function () {
 function createButton(context, value, index) {
   var btn = document.createElement('button');
   btn.innerText = value;
-  btn.setAttribute('onclick', "makeShape( ".concat(index, ", ").concat(places.length, " )"));
+  btn.setAttribute('onclick', "changeColour( ".concat(index, ", colours )"));
   context.appendChild(btn);
-}
-
-function makeShape(index, numPlaces) {
-  console.log('making shape: ' + (index + 1) + ' of ' + numPlaces);
 }
 
 function submit() {
   alert('Submitted');
+  /* TODO:
+   * - get bounds from google map
+   * - save entire canvas as image (svg?)
+   * - export image with map bounds to server
+   * - include any user info?
+   */
 }
 
 function initMap() {

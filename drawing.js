@@ -2,9 +2,9 @@
 const canvas = new fabric.Canvas(document.querySelector('canvas'))
 
 canvas.backgroundColor = 'transparent'
-canvas.isDrawingMode = true
-canvas.freeDrawingBrush.color = 'red'
-canvas.freeDrawingBrush.width = 3
+canvas.isDrawingMode = false
+canvas.freeDrawingBrush.color = 'black'
+canvas.freeDrawingBrush.width = 5
 canvas.renderAll();
 
 function resizeCanvas() {
@@ -36,7 +36,7 @@ canvas.on('object:added', function() {
     
   function undo(){
     if( canvas._objects.length > 0 ){
-        h.push( canvas._objects.pop() );
+        h.push( canvas._objects.pop() )
         canvas.renderAll();
     }
   }
@@ -45,6 +45,12 @@ canvas.on('object:added', function() {
     
     if( h.length > 0 ){
         isRedoing = true;
-        canvas.add(h.pop());
+        canvas.add( h.pop() )
     }
+  }
+
+  function changeColour( index, colours ) {
+    canvas.freeDrawingBrush.color = colours[index]
+    canvas.isDrawingMode = true
+    canvas.renderAll()
   }

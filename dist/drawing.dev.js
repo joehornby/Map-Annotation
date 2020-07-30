@@ -2,9 +2,9 @@
 
 var canvas = new fabric.Canvas(document.querySelector('canvas'));
 canvas.backgroundColor = 'transparent';
-canvas.isDrawingMode = true;
-canvas.freeDrawingBrush.color = 'red';
-canvas.freeDrawingBrush.width = 3;
+canvas.isDrawingMode = false;
+canvas.freeDrawingBrush.color = 'black';
+canvas.freeDrawingBrush.width = 5;
 canvas.renderAll();
 
 function resizeCanvas() {
@@ -46,4 +46,10 @@ function redo() {
     isRedoing = true;
     canvas.add(h.pop());
   }
+}
+
+function changeColour(index, colours) {
+  canvas.freeDrawingBrush.color = colours[index];
+  canvas.isDrawingMode = true;
+  canvas.renderAll();
 }

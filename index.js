@@ -11,7 +11,19 @@ let map
       "Purley",
       "South Croydon"
     ];
-    // let placeButtonContainer = document.getElementById( 'places' )
+    const numColours = places.length
+
+    let colours = [];
+
+    for( i=0; i < numColours; i++ ){
+        /* Get evenly spaced array of 
+         * hues across colour wheel
+         */
+        hue = Math.round(i / numColours * 360);
+        colours[i] = `hsl(${hue}, 100%, 50%)`
+    }
+
+    console.log(colours)
 
     window.onload = () => {
       places.forEach( (place, index) => {
@@ -25,16 +37,18 @@ let map
     function createButton( context, value, index ){
       let btn = document.createElement( 'button' )
       btn.innerText = value
-      btn.setAttribute('onclick',`makeShape( ${index}, ${places.length} )`)
+      btn.setAttribute('onclick',`changeColour( ${index}, colours )`)
       context.appendChild( btn )
-    }
-
-    function makeShape( index, numPlaces ) {
-      console.log( 'making shape: ' + (index+1) + ' of ' + numPlaces)
     }
 
     function submit() {
       alert('Submitted')
+      /* TODO:
+       * - get bounds from google map
+       * - save entire canvas as image (svg?)
+       * - export image with map bounds to server
+       * - include any user info?
+       */
     }
     
     function initMap() {
