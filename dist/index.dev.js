@@ -14,8 +14,6 @@ for (i = 0; i < numColours; i++) {
   colours[i] = "hsl(".concat(hue, ", 100%, 70%)");
 }
 
-console.log(colours);
-
 window.onload = function () {
   places.forEach(function (place, index) {
     createButton(placeButtons, place, index);
@@ -32,7 +30,7 @@ function createButton(context, value, index) {
 }
 
 function submit() {
-  alert('Submitted');
+  alert('Submitted (to do)');
   /* TODO:
    * - get bounds from google map
    * - save entire canvas as image (svg?)
