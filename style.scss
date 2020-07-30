@@ -22,12 +22,14 @@ body {
     top: 2rem;;
     left: 2rem;
     padding: 1rem 2rem;
-    width: clamp( 30%, 100%, 35ch );
+    width: clamp( 23%, 50%, 28ch );
     background-color: rgba(255, 255, 255, 0.55);
 }
 
 button {
-    display: inline-block;
+    display: block;
+    width: 50%;
+    min-width: 20ch;
     border: none;
     padding: 0.5rem 1rem;
     margin: 0 1rem 1rem 0;
@@ -67,6 +69,7 @@ button {
     padding: 2rem;
     justify-content: space-between;
     & button {
+        width: max-content;
         background-color: #000;
         color: #fff;
 
