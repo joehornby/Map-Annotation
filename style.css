@@ -75,3 +75,19 @@ button:active {
   background-color: #000;
   color: #fff;
 }
+
+.canvas-controls button.btn__destructive {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: #d30000;
+}
+
+.canvas-controls button.btn__destructive:hover {
+  background-color: #df0000;
+  color: white;
+}
+
+.canvas-controls button:hover {
+  background-color: #333;
+}
