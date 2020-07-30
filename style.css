@@ -26,7 +26,7 @@ body {
   top: 2rem;
   left: 2rem;
   padding: 1rem 2rem;
-  width: clamp(50%, 100%, 35ch);
+  width: clamp(30%, 100%, 35ch);
   background-color: rgba(255, 255, 255, 0.55);
 }
 

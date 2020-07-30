@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Draw on the Map — Purley Way Finders</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDho_PPZCDAkwNa1dqyCzIK_Z1X6eLhSnc&callback=initMap&libraries=&v=weekly" defer></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.js" integrity="sha512-FpuyIfJqA5SwslxDh9wPl1i/O5a5eseDcdPJ1heIYj2CUojZNjdX1STpMAe7yUhdDKx1dX/byj+A6KWeYuRSdw==" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDho_PPZCDAkwNa1dqyCzIK_Z1X6eLhSnc&callback=initMap&libraries=&v=weekly" defer></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -24,7 +23,7 @@
 
     <div class="canvas-controls">
       <button onclick="undo()">Undo</button>
-      <button onclick="clearCanvas()">Clear</button>
+      <button onclick="canvas.clear()">Clear</button>
       <button onclick="submit()">Submit</button>
     </div>
     
@@ -64,6 +63,10 @@
 
     function makeShape( index, numPlaces ) {
       console.log( 'making shape: ' + (index+1) + ' of ' + numPlaces)
+    }
+
+    function submit() {
+      alert('Submitted')
     }
     
     function initMap() {
@@ -292,5 +295,6 @@
       map.setMapTypeId("minimal_map");
     }
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.js" integrity="sha512-FpuyIfJqA5SwslxDh9wPl1i/O5a5eseDcdPJ1heIYj2CUojZNjdX1STpMAe7yUhdDKx1dX/byj+A6KWeYuRSdw==" crossorigin="anonymous"></script>
   <script src="drawing.js"></script>
 </html>
