@@ -1,5 +1,8 @@
-#map,
-#canvas {
+* {
+  box-sizing: border-box;
+}
+
+#map {
   height: 100%;
 }
 
@@ -13,12 +16,9 @@ body {
   background-color: #ddd;
 }
 
-#canvas {
+.canvas-wrapper {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 
 .info {
@@ -60,4 +60,18 @@ button:focus {
 
 button:active {
   background: yellow;
+}
+
+.canvas-controls {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.canvas-controls button {
+  background-color: #000;
+  color: #fff;
 }

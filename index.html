@@ -6,18 +6,26 @@
     <title>Draw on the Map — Purley Way Finders</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDho_PPZCDAkwNa1dqyCzIK_Z1X6eLhSnc&callback=initMap&libraries=&v=weekly" defer></script> -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.js" integrity="sha512-FpuyIfJqA5SwslxDh9wPl1i/O5a5eseDcdPJ1heIYj2CUojZNjdX1STpMAe7yUhdDKx1dX/byj+A6KWeYuRSdw==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="map"></div>
-    <canvas id="canvas"></canvas>
+    <div class="canvas-wrapper">
+      <canvas id="canvas"></canvas>
+    </div>
     <div class="info">
       <h1>Do you know where these places are?</h1>
       <p>Click the name of a place and draw where you think this is.</p>
       <div id="places">
         <!-- JavaScript to fill with buttons -->
       </div>
+    </div>
+
+    <div class="canvas-controls">
+      <button onclick="undo()">Undo</button>
+      <button onclick="clearCanvas()">Clear</button>
+      <button onclick="submit()">Submit</button>
     </div>
     
 
@@ -284,4 +292,5 @@
       map.setMapTypeId("minimal_map");
     }
   </script>
+  <script src="drawing.js"></script>
 </html>

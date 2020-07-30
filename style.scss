@@ -1,5 +1,7 @@
-#map,
-#canvas {
+* {
+    box-sizing: border-box;
+}
+#map {
   height: 100%;
 }
 html,
@@ -11,9 +13,9 @@ body {
   font-size: 1rem;
   background-color: #ddd;
 }
-#canvas {
+.canvas-wrapper {
     position: fixed;
-    top:0; right: 0; bottom: 0; left: 0;
+    top:0;
 }
 .info {
     position: absolute;
@@ -53,5 +55,18 @@ button {
     }
     &:active {
         background: rgba(255,255,0,1);
+    }
+}
+
+.canvas-controls {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    & button {
+        background-color: #000;
+        color: #fff;
     }
 }
