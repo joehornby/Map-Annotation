@@ -7,6 +7,9 @@ canvas.freeDrawingBrush.color = 'black'
 canvas.freeDrawingBrush.width = 5
 canvas.renderAll();
 
+/* ***
+ * Resize canvas on window resize, centred
+ * ***/
 function resizeCanvas() {
     canvas.setHeight(window.innerHeight)
     canvas.setWidth(window.innerWidth)
@@ -27,9 +30,9 @@ window.addEventListener('resize', _ => {
 })
 
 
-/* *************** 
+/* ***
  * Add undo/redo capability to fabric
- * ***************/
+ * ***/
 let isRedoing = false;
 let h = [];
 
@@ -38,25 +41,28 @@ canvas.on('object:added', function() {
       h = [];
     }
     isRedoing = false;
-  });
+});
     
-  function undo(){
+function undo(){
     if( canvas._objects.length > 0 ){
         h.push( canvas._objects.pop() )
         canvas.renderAll();
     }
-  }
+}
 
-  function redo(){
-    
+function redo(){
+
     if( h.length > 0 ){
         isRedoing = true;
         canvas.add( h.pop() )
     }
-  }
+}
 
-  function changeColour( index, colours ) {
+/* *** 
+ * Change colour of brush 
+ * ***/
+function changeColour( index, colours ) {
     canvas.freeDrawingBrush.color = colours[index]
     canvas.isDrawingMode = true
     canvas.renderAll()
-  }
+}
