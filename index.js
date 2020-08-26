@@ -1,53 +1,41 @@
 let map
-let placeButtons = document.createDocumentFragment()
 let bounds
+let pageOne, pageTwo, pageThree
 
-let places = [
-    "Waddon",
-    "Purley Way",
-    "Hackbridge",
-    "Wallington",
-    "Roundshaw",
-    "Beddington",
-    "Purley",
-    "South Croydon"
-];
-const numColours = places.length
+/* ***
+ * Get page elements on load
+ * ***/
+window.addEventListener('load', _ => {
+    pageOne = document.querySelector('.page-one')
+    pageTwo = document.querySelector('.page-two')
+    pageThree = document.querySelector('.page-three')
+    
+    showPageOne()
+})
 
-let colours = [];
+function showPageOne() {
+    pageThree.style.display = 'none'
+    pageTwo.style.display = 'none'
+    pageOne.style.display = 'block'
 
-for( i=0; i < numColours; i++ ){
-    /* Get evenly spaced array of 
-        * hues across colour wheel
-        */
-    hue = Math.round(i / numColours * 360);
-    colours[i] = `hsl(${hue}, 100%, 70%)`
 }
 
-window.onload = () => {
-    places.forEach( (place, index) => {
-    createButton( placeButtons, place, index )
-    });
-
-    document.getElementById( 'places' ).appendChild( placeButtons )
+function showPageTwo() {
+    pageThree.style.display = 'none'
+    pageOne.style.display = 'none'
+    pageTwo.style.display = 'block'
 }
 
-
-function createButton( context, value, index ){
-    let btn = document.createElement( 'button' )
-    btn.innerText = value
-    btn.setAttribute('onclick',`changeColour( ${index}, colours )`)
-    btn.style.backgroundColor = colours[index]
-    context.appendChild( btn )
+function showPageThree() {
+    pageTwo.style.display = 'none'
+    pageOne.style.display = 'none'
+    pageThree.style.display = 'block'
 }
 
 function submit() {
     alert('map bounds'+ bounds)
     /* TODO:
-    * - get bounds from google map
-    * - save entire canvas as image (svg?)
-    * - export image with map bounds to server
-    * - include any user info?
+    * - submit object containing svg / label / bounds
     */
 }
 
@@ -283,8 +271,6 @@ function initMap() {
         bounds = map.getBounds()
     })    
 }
-
-
 
 
 
