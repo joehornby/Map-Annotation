@@ -1,6 +1,7 @@
 let map
 let bounds
-let pageOne, pageTwo, pageThree
+let pageOne, pageTwo, pageThree, pageFour
+let description
 
 /* ***
  * Get page elements on load
@@ -9,31 +10,49 @@ window.addEventListener('load', _ => {
     pageOne = document.querySelector('.page-one')
     pageTwo = document.querySelector('.page-two')
     pageThree = document.querySelector('.page-three')
+    pageFour = document.querySelector('.page-four')
+    
+    description = document.getElementById('description')
+
+    document.querySelector('.loading').style.display = 'none'
     
     showPageOne()
 })
 
 function showPageOne() {
-    pageThree.style.display = 'none'
     pageTwo.style.display = 'none'
+    pageThree.style.display = 'none'
+    pageFour.style.display = 'none'
+    
     pageOne.style.display = 'block'
 
 }
 
 function showPageTwo() {
-    pageThree.style.display = 'none'
     pageOne.style.display = 'none'
+    pageThree.style.display = 'none'
+    pageFour.style.display = 'none'
+
     pageTwo.style.display = 'block'
 }
 
 function showPageThree() {
-    pageTwo.style.display = 'none'
     pageOne.style.display = 'none'
+    pageTwo.style.display = 'none'
+    pageFour.style.display = 'none'
+
     pageThree.style.display = 'block'
+}
+function showPageFour() {
+    pageOne.style.display = 'none'
+    pageTwo.style.display = 'none'
+    pageThree.style.display = 'none'
+
+    pageFour.style.display = 'block'
 }
 
 function submit() {
-    alert('map bounds'+ bounds)
+    alert('TODO: store on server. Description:' + description.value + 'Map bounds: ' + bounds + ' // SVG: ' + canvas.toSVG())
     /* TODO:
     * - submit object containing svg / label / bounds
     */

@@ -6,6 +6,9 @@ canvas.isDrawingMode = false;
 canvas.freeDrawingBrush.color = 'black';
 canvas.freeDrawingBrush.width = 5;
 canvas.renderAll();
+/* ***
+ * Resize canvas on window resize, centred
+ * ***/
 
 function resizeCanvas() {
   canvas.setHeight(window.innerHeight);
@@ -27,9 +30,19 @@ window.addEventListener('load', function (_) {
 window.addEventListener('resize', function (_) {
   resizeCanvas();
 });
-/* *************** 
+
+function startDrawing() {
+  canvas.isDrawingMode = true;
+  canvas.renderAll();
+}
+
+function stopDrawing() {
+  canvas.isDrawingMode = false;
+}
+/* ***
  * Add undo/redo capability to fabric
- * ***************/
+ * ***/
+
 
 var isRedoing = false;
 var h = [];
@@ -54,9 +67,9 @@ function redo() {
     canvas.add(h.pop());
   }
 }
+/* *** 
+ * Save image 
+ * ***/
 
-function changeColour(index, colours) {
-  canvas.freeDrawingBrush.color = colours[index];
-  canvas.isDrawingMode = true;
-  canvas.renderAll();
-}
+
+function saveImage() {}

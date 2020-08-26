@@ -31,6 +31,7 @@ window.addEventListener('resize', _ => {
 
 function startDrawing() {
     canvas.isDrawingMode = true
+    canvas.renderAll()
 }
 
 function stopDrawing() {

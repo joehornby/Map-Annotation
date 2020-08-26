@@ -1,42 +1,56 @@
 "use strict";
 
 var map;
-var placeButtons = document.createDocumentFragment();
-var places = ["Waddon", "Purley Way", "Hackbridge", "Wallington", "Roundshaw", "Beddington", "Purley", "South Croydon"];
-var numColours = places.length;
-var colours = [];
+var bounds;
+var pageOne, pageTwo, pageThree, pageFour;
+var description;
+/* ***
+ * Get page elements on load
+ * ***/
 
-for (i = 0; i < numColours; i++) {
-  /* Get evenly spaced array of 
-   * hues across colour wheel
-   */
-  hue = Math.round(i / numColours * 360);
-  colours[i] = "hsl(".concat(hue, ", 100%, 70%)");
+window.addEventListener('load', function (_) {
+  pageOne = document.querySelector('.page-one');
+  pageTwo = document.querySelector('.page-two');
+  pageThree = document.querySelector('.page-three');
+  pageFour = document.querySelector('.page-four');
+  description = document.getElementById('description');
+  document.querySelector('.loading').style.display = 'none';
+  showPageOne();
+});
+
+function showPageOne() {
+  pageTwo.style.display = 'none';
+  pageThree.style.display = 'none';
+  pageFour.style.display = 'none';
+  pageOne.style.display = 'block';
 }
 
-window.onload = function () {
-  places.forEach(function (place, index) {
-    createButton(placeButtons, place, index);
-  });
-  document.getElementById('places').appendChild(placeButtons);
-};
+function showPageTwo() {
+  pageOne.style.display = 'none';
+  pageThree.style.display = 'none';
+  pageFour.style.display = 'none';
+  pageTwo.style.display = 'block';
+}
 
-function createButton(context, value, index) {
-  var btn = document.createElement('button');
-  btn.innerText = value;
-  btn.setAttribute('onclick', "changeColour( ".concat(index, ", colours )"));
-  btn.style.backgroundColor = colours[index];
-  context.appendChild(btn);
+function showPageThree() {
+  pageOne.style.display = 'none';
+  pageTwo.style.display = 'none';
+  pageFour.style.display = 'none';
+  pageThree.style.display = 'block';
+}
+
+function showPageFour() {
+  pageOne.style.display = 'none';
+  pageTwo.style.display = 'none';
+  pageThree.style.display = 'none';
+  pageFour.style.display = 'block';
 }
 
 function submit() {
-  alert('Submitted (to do)');
+  alert('TODO: store on server. Description:' + description.value + 'Map bounds: ' + bounds + ' // SVG: ' + canvas.toSVG());
   /* TODO:
-   * - get bounds from google map
-   * - save entire canvas as image (svg?)
-   * - export image with map bounds to server
-   * - include any user info?
-   */
+  * - submit object containing svg / label / bounds
+  */
 }
 
 function initMap() {
@@ -191,4 +205,11 @@ function initMap() {
   });
   map.mapTypes.set("minimal_map", styledMapType);
   map.setMapTypeId("minimal_map");
+  /* ***
+  * Get map bounds
+  */
+
+  google.maps.event.addListener(map, 'idle', function (_) {
+    bounds = map.getBounds();
+  });
 }
