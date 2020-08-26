@@ -38,13 +38,14 @@
           </p>
           </li>
         </ol>
-        <button class="h-center" onclick="showPageTwo();startDrawing()">Start</button>
+        <button class="h-center" onclick="showPageTwo()">Start</button>
       </div>
 
       <div class="page-two">
         <h1>Draw an area outline</h1>
         <button onclick="showPageThree()">Add Description</button>
         <div class="canvas-controls">
+          <button onclick="undo()">&#10226; Undo</button>
           <button class="btn__destructive btn__clear" onclick="canvas.clear()">Clear</button>
         </div>
       </div>
@@ -52,13 +53,13 @@
         <label for="description"><h1>Tell us about the area you've outlined</h1></label>
         <textarea id="description" name="description" rows="5" cols="33" required="true" placeholder="What do you call this area? Or what do you think about this area?"></textarea>
         <button class="btn__secondary" onclick="showPageTwo()">Go Back</button>
-        <button onclick="submit()">Submit</button>
+        <button onclick="showPageFour(); submit(); reset()">Submit</button>
       </div>
        
       <div class="page-four">
         <h1>Got it, thanks!</h1>
-        <button>Go back home</button>
-        <button>Add another place</button>
+        <button class="btn__secondary" onclick="showPageOne()">Go back home</button>
+        <button onclick="showPageTwo(); startDrawing()">Add another place</button>
       </div>
       
     </div>

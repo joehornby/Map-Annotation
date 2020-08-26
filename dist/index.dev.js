@@ -19,6 +19,7 @@ window.addEventListener('load', function (_) {
 });
 
 function showPageOne() {
+  stopDrawing();
   pageTwo.style.display = 'none';
   pageThree.style.display = 'none';
   pageFour.style.display = 'none';
@@ -26,6 +27,7 @@ function showPageOne() {
 }
 
 function showPageTwo() {
+  startDrawing();
   pageOne.style.display = 'none';
   pageThree.style.display = 'none';
   pageFour.style.display = 'none';
@@ -33,13 +35,16 @@ function showPageTwo() {
 }
 
 function showPageThree() {
+  stopDrawing();
   pageOne.style.display = 'none';
   pageTwo.style.display = 'none';
   pageFour.style.display = 'none';
   pageThree.style.display = 'block';
+  description.focus();
 }
 
 function showPageFour() {
+  stopDrawing();
   pageOne.style.display = 'none';
   pageTwo.style.display = 'none';
   pageThree.style.display = 'none';
@@ -51,6 +56,11 @@ function submit() {
   /* TODO:
   * - submit object containing svg / label / bounds
   */
+}
+
+function reset() {
+  description.value = "";
+  canvas.clear();
 }
 
 function initMap() {
