@@ -29,6 +29,13 @@ window.addEventListener('resize', _ => {
     resizeCanvas()
 })
 
+function startDrawing() {
+    canvas.isDrawingMode = true
+}
+
+function stopDrawing() {
+    canvas.isDrawingMode = false
+}
 
 /* ***
  * Add undo/redo capability to fabric
@@ -59,10 +66,9 @@ function redo(){
 }
 
 /* *** 
- * Change colour of brush 
+ * Save image 
  * ***/
-function changeColour( index, colours ) {
-    canvas.freeDrawingBrush.color = colours[index]
-    canvas.isDrawingMode = true
-    canvas.renderAll()
-}
+
+ function saveImage() {
+     
+ }
