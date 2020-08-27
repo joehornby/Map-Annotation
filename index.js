@@ -18,6 +18,8 @@ window.addEventListener('load', _ => {
 
     document.querySelector('.loading').style.display = 'none'
     
+    window.scrollTo(document.body.scrollWidth / 2, document.body.scrollHeight / 2)
+
     showPageOne()
 })
 
@@ -304,7 +306,7 @@ function initMap() {
     { name: "Minimal Map" }
     );
     map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 51.3631595, lng: -0.1227972 },
+    center: { lat: 51.3605082, lng: -0.1231313 },
     zoom: 15,
     gestureHandling: "none",
     disableDefaultUI: true

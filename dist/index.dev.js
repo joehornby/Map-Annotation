@@ -16,6 +16,7 @@ window.addEventListener('load', function (_) {
   screenshot = document.querySelector('.screenshot');
   description = document.getElementById('description');
   document.querySelector('.loading').style.display = 'none';
+  window.scrollTo(document.body.scrollWidth / 2, document.body.scrollHeight / 2);
   showPageOne();
 });
 
@@ -221,8 +222,8 @@ function initMap() {
   });
   map = new google.maps.Map(document.getElementById("map"), {
     center: {
-      lat: 51.3631595,
-      lng: -0.1227972
+      lat: 51.3605082,
+      lng: -0.1231313
     },
     zoom: 15,
     gestureHandling: "none",
