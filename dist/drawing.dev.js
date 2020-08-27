@@ -11,8 +11,8 @@ canvas.renderAll();
  * ***/
 
 function resizeCanvas() {
-  canvas.setHeight(window.innerHeight);
-  canvas.setWidth(window.innerWidth);
+  canvas.setHeight(window.innerHeight * 2);
+  canvas.setWidth(window.innerWidth * 2);
   canvas.renderAll();
 }
 /* ***

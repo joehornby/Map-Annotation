@@ -52,12 +52,24 @@
       <div class="page-three">
         <label for="description"><h1>Tell us about the area you've outlined</h1></label>
         <textarea id="description" name="description" rows="5" cols="33" required="true" placeholder="What do you call this area? Or what do you think about this area?"></textarea>
-        <button class="btn__secondary" onclick="showPageTwo()">Go Back</button>
-        <button onclick="showPageFour(); submit(); reset()">Submit</button>
+        <div class="canvas-controls">
+          <button class="btn__secondary" onclick="showPageTwo()">&larr; Go Back</button>
+        </div>
+        <button onclick="showScreenshot()">Ready to screenshot</button>
+        <!-- <button onclick="showPageFour(); submit(); reset()">Submit</button> -->
+      </div>
+
+      <!-- Temporary screenshot page for prototype -->
+      <div class="screenshot">
+        <h1 id="show-description"></h1>
+        <div class="canvas-controls">
+          <h1 class="instructions">Take a screenshot and add it to Miro!</h1>
+          <button onclick="showPageFour(); reset()">Done</button>
+        </div>
       </div>
        
       <div class="page-four">
-        <h1>Got it, thanks!</h1>
+        <h1>Thanks!</h1>
         <button class="btn__secondary" onclick="showPageOne()">Go back home</button>
         <button onclick="showPageTwo(); startDrawing()">Add another place</button>
       </div>
