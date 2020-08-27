@@ -11,8 +11,8 @@ canvas.renderAll();
  * Resize canvas on window resize, centred
  * ***/
 function resizeCanvas() {
-    canvas.setHeight(window.innerHeight * 2)
-    canvas.setWidth(window.innerWidth * 2)
+    canvas.setHeight(window.innerHeight * 2.2)
+    canvas.setWidth(window.innerWidth * 2.2)
     canvas.renderAll()
 }
 
