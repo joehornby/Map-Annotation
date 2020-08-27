@@ -306,7 +306,7 @@ function initMap() {
     { name: "Minimal Map" }
     );
     map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 51.3605082, lng: -0.1231313 },
+    center: { lat: 51.3605082, lng: -0.1135712 },
     zoom: 15,
     gestureHandling: "none",
     disableDefaultUI: true
